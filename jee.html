@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Pop-up Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .popup {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Welcome to the Page!</h1>
+        <p>This is the content of your website. The pop-up will ask a question first.</p>
+    </div>
+
+    <!-- Pop-up Overlay -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p id="question"></p>
+            <form id="quiz-form">
+                <input type="checkbox" name="answer" value="A" id="optionA"> <label for="optionA" id="optionAText"></label><br>
+                <input type="checkbox" name="answer" value="B" id="optionB"> <label for="optionB" id="optionBText"></label><br>
+                <input type="checkbox" name="answer" value="C" id="optionC"> <label for="optionC" id="optionCText"></label><br>
+                <input type="checkbox" name="answer" value="D" id="optionD"> <label for="optionD" id="optionDText"></label><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const questions = [
+                {
+                    question: "At room temperature, disproportionation of an aqueous solution of in situ generated nitrous acid (HNO2) gives the species",
+                    options: { A: "H3O+, NO3− and NO", B: "H3O+, NO3− and NO2", C: "H3O+, NO3− and NO2", D: "H3O+, NO3− and N2O" },
+                    correctAnswers: ["A"] // Single correct answer
+                },
+                {
+                    question: "Among the following, the correct statement(s) for electrons in an atom is(are)",
+                    options: { A: "Uncertainty principle rules out the existence of definite paths for electrons", 
+                              B: "The energy of an electron in 2s orbital of an atom is lower than the energy of an electron that is infinitely far away from the nucleus",
+                              C: "According to Bohr’s model, the most negative energy value for an electron is given by n = 1, which corresponds to the most stable orbit", 
+                              D: "According to Bohr’s model, the magnitude of velocity of electrons increases with increase in values of n" },
+                    correctAnswers: ["A", "B", "C"] // Multiple correct answers
+                },
+                {
+                    question: "The option(s) in which at least three molecules follow Octet Rule is(are)",
+                    options: { 
+                        A: "CO2, C2H4, NO and HCl",
+                        B: "NO2, O3, HCl and H2SO4",
+                        C: "BCl3, NO, NO2 and H2SO4",
+                        D: "CO2, BCl3, O3 and C2H4"
+                    },
+                    correctAnswers: ["A", "D"] // Multiple correct answers
+                },
+                {
+                    question: "According to Bohr’s model, the highest kinetic energy is associated with the electron in the ",
+                    options: { 
+                        A: "first orbit of H atom",
+                        B: "first orbit of He+",
+                        C: "second orbit of He+",
+                        D: "second orbit of Li2+"
+                    },
+                    correctAnswers: ["B"] // Single correct answer
+                },
+                {
+                    question: "The species formed on fluorination of phosphorus pentachloride in a polar organic solvent are ",
+                    options: { 
+                        A: "[PF4]+[PF6]− and [PCl4]+[PF6]−",
+                        B: "[PCl4]+[PCl4F2]− and [PCl4]+[PF6]−",
+                        C: "PF3 and PCl3",
+                        D: "PF5 and PCl3"
+                    },
+                    correctAnswers: ["B"] // Single correct answer
+                },
+                {
+                    question: "An aqueous solution of hydrazine (N2H4) is electrochemically oxidized by O2, thereby releasing chemical energy in the form of electrical energy. One of the products generated from the electrochemical reaction is N2(g). Choose the correct statement(s) about the above process.",
+                    options: { 
+                        A: "OH− ions react with N2H4 at the anode to form N2(g) and water, releasing 4 electrons to the anode.",
+                        B: "At the cathode, N2H4 breaks to N2(g) and nascent hydrogen released at the electrode reacts with oxygen to form water.",
+                        C: "At the cathode, molecular oxygen gets converted to OH−.",
+                        D: "Oxides of nitrogen are major by-products of the electrochemical process."
+                    },
+                    correctAnswers: ["A", "C", "D"] // Multiple correct answers
+                },
+                {
+                    question: "The compound(s) having peroxide linkage is(are)",
+                    options: { 
+                        A: "H2S2O7",
+                        B: "H2S2O8",
+                        C: "H2S2O5",
+                        D: "H2SO5"
+                    },
+                    correctAnswers: ["B", "D"] // Multiple correct answers
+                }
+
+
+
+
+            ];
+
+            // Randomly pick a question
+            const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+
+            // Display the question and options in the popup
+            document.getElementById('question').textContent = randomQuestion.question;
+            document.getElementById('optionAText').textContent = randomQuestion.options.A;
+            document.getElementById('optionBText').textContent = randomQuestion.options.B;
+            document.getElementById('optionCText').textContent = randomQuestion.options.C;
+            document.getElementById('optionDText').textContent = randomQuestion.options.D;
+
+            // Show the pop-up
+            document.getElementById('popup').style.display = 'flex';
+
+            // Handle form submission
+            document.getElementById('quiz-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // Get the selected checkboxes
+                const selectedAnswers = [];
+                const checkboxes = document.querySelectorAll('input[name="answer"]:checked');
+                checkboxes.forEach(checkbox => selectedAnswers.push(checkbox.value));
+
+                // Sort the answers to ensure order doesn't affect the comparison
+                const sortedSelectedAnswers = selectedAnswers.sort();
+                const sortedCorrectAnswers = randomQuestion.correctAnswers.sort();
+
+                // Check if the selected answers exactly match the correct answers
+                if (JSON.stringify(sortedSelectedAnswers) === JSON.stringify(sortedCorrectAnswers)) {
+                    alert('Correct answer!');
+                } else {
+                    alert('Wrong answer!');
+                }
+
+                // Hide the pop-up after answering
+                document.getElementById('popup').style.display = 'none';
+            });
+        };
+    </script>
+</body>
+</html>

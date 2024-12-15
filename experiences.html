@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Boxes with Paragraphs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Page background color */
+            color: #fff; /* Text color */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column; /* Stack the boxes vertically */
+            align-items: center;
+            gap: 20px;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        .contact-box {
+            width: 80%; /* Increased width for bigger boxes */
+            max-width: 600px; /* Maximum width to prevent stretching */
+            height: 300px; /* Increased height for bigger boxes */
+            background-color: #1E1E1E; /* Flexbox background color */
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            opacity: 0; /* Initially hidden */
+            transform: translateY(50px); /* Initially moved down */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .contact-box.visible {
+            opacity: 1;
+            transform: translateY(0); /* Move to original position */
+        }
+
+        .contact-box h3 {
+            font-weight: 600;
+            color: #FF6F61; /* Highlight color for the heading */
+            margin-bottom: 10px;
+        }
+
+        .contact-box p {
+            font-size: 1rem;
+            color: #fff; /* Text color */
+            line-height: 1.5; /* Better spacing for readability */
+        }
+        .home-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #1E1E1E; /* Highlighted color for the button */
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            border-radius: 30px; /* Rounded corners for the button */
+            text-decoration: none;
+            margin-top: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        .name {
+            position: absolute; /* Position the name absolutely within the container */
+            bottom: 10px; /* Distance from the bottom */
+            right: 10px; /* Distance from the right */
+            font-size: 16px;
+            color: #7DF9FF;
+            }
+
+        /* Optional styling for smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 10 Contact Boxes -->
+        <div class="contact-box">
+            <div class = "name">Anshul Goyal</div>
+            <p>I studied at Allen Marathahalli in grade 11, taking JEE coaching. My experience was quite positive. The teachers were excellent and possessed 
+                great subject expertise. They were also very patient when handling doubts and supportive and responsive overall. The peer group was also 
+                amazing and possessed a healthy competitive spirit.</p>
+        </div>
+
+        <div class="contact-box">
+            <div class = "name">Aditya Ramesh</div>
+            <p>The teachers are exactly opposite of what you would expect from a coaching centre. The entire emphasis (for the majority of my time there) was 
+                put on learning the subjects thoroughly and clearing concepts rather than tricks on getting more marks. The teachers are experienced yet still 
+                passionate about the subjects and their guidance is trustworthy. Overall an enjoyable journey.</p>
+        </div>
+
+        <div class="contact-box">
+            <div class = "name">Pulkit Jindal</div>
+            <p>I'd like to say that my journey at Allen Marathahalli was extremely positive and there was a great emphasis on the learning and it felt 
+                like the class interacted with each other a lot as well as with the teachers because they were driven by their curiosity. I think that 
+                the teachers taught with a lot of passion and I would say generally I never felt like I wasn't enjoying the things which I was doing and 
+                wasn't learning. I think the most valuable lesson imparted to me here was the lesson of how to enjoy learning even more so than how to learn.</p>
+        </div>
+
+        <div class="contact-box">
+            <div class = "name">Prateek Kathare</div>
+            <p>My JEE journey was a twisty ride and my mock marks were very inconsistent. The teachers guided me through most of it. Honestly, a lot 
+                of the overarching planning was done by the teachers, with respect to what books to solve and how to approach problems. They brought 
+                up interesting models and pre-loaded ideas that improve speed, sourcing questions from various countries sometimes. I enjoyed my time
+                in Allen Marathalli and appreciate the knowledge I gained even outside my studies</p>
+        </div>
+
+        <div class="contact-box">
+            <div class = "name">Rishit Verma</div>
+            <p>ALLEN Marathahalli provided me the platform for success. The course structure and study material targets to bring the best out of every student. 
+                My JEE journey was with filled with highs and lows, but pushing forward through every low is my biggest takeaway from my preparation. 
+                JEE tests more than just academics, the journey brings about discipline and learning how to tackle new situations. The process of learning 
+                was very enjoyable and a lot of credit goes to the teachers and the way they have been teaching their subject with full enthusiasm. 
+                Overall, the experience was very worth it, and will carry forward the learnings for future endeavors.</p>
+        </div>
+
+        <div class="contact-box">
+            <div class = "name">Soham Dandekar</div>
+            <p>It wasn’t easy. Got burnt out by the end of it. Obviously had my ups and downs throughout the 2 years. Just have to put your head down and 
+                keep at it, enjoy the learning and work hard. Had my fair share of bad tests, I think they’re part of the prep. Just work hard and the 
+                reward will be worth it :)</p>
+        </div>
+
+        <div class="contact-box">
+            <div class = "name">Kushal Galrani</div>
+            <p>Started off basic, but things got more interesting and advanced very quickly.
+                I made sure to think from the perspective of a scientist inventing those things and understood the topic if I felt I could have 
+                invented those things myself, understanding the thought process of the scientist.
+                Some topics were annoying because much explanation was not given, so I couldn't understand it the way I like, but thats okay and you
+                 need to learn to deal with that. Its also okay to memorize some things which you can't understand, or find it extremely difficult to reason. 
+                 Some topics were too advanced so the syllabus only deals with a surface level understanding.
+                I used to only look at my rank after the test results came out, and I'd often not bother to check where I went wrong in the test, which is
+                 not a good thing. Even if I couldn't solve any questions in the test, it was important to make sure I see it's solutions and understand them 
+                 at the end. Sometimes test giving is not the only way. Its okay to take a break from giving tests so you 
+                 can focus on your study. If the tests 
+                are too frequent and you end up being blank during the test, it wont help.</p>
+        </div>
+
+
+        <div class="contact-box">
+            <div class = "name">Anshul Marathe</div>
+            <p>My experience at Allen Marathahalli was amazing. The teachers used to give thought provoking questions which helped a lot in my jee journey. 
+                I made many close friends and it was more fun than I thought it would be.</p>
+        </div>
+
+        <div class="contact-box">
+            <div class = "name">Priyal</div>
+            <p>I've had quite an interesting and great journey with allen marathahalli. I had first taken admission in a normal full day school and allen 
+                evening batch. First few tests went well and teachers were quite encouraging and ready to solve doubts any time. Later, after the screening test, 
+                we decided to shift to the morning batch. We met with campus head regarding this and the shift was done within two days. So, I went to
+                 morning batch (initially srg b1 and later srg a1) and again teachers really motivated us in all aspects. Though difficulty level of tests was 
+                 too high for some and too low for the rest, frequency of tests was pretty good and kept us all in good practice.</p>
+        </div>
+
+        <div class="contact-box">
+            <div class = "name">Sparsh</div>
+            <p>I had a great experience at Allen Marathahalli.
+                I really enjoyed my time learning new things there, most importantly because of the way a lot of things were taught which helped me gain better 
+                insights. I'm really grateful to the teachers for their effort and constant support throughout my JEE journey which had a lot of ups and downs.</p>
+        </div>
+        <a href="./index.html" class="home-button">Home</a>
+    </div>
+
+    <script>
+        // Function to handle visibility of elements when they come into the viewport
+        const boxes = document.querySelectorAll('.contact-box');
+
+        const observerOptions = {
+            threshold: 0.5 // Trigger when 50% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible'); // Add class when in view
+                    observer.unobserve(entry.target); // Stop observing once it's visible
+                }
+            });
+        }, observerOptions);
+
+        boxes.forEach(box => {
+            observer.observe(box); // Start observing each box
+        });
+    </script>
+
+</body>
+</html>

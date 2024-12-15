@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts Page</title>
+    <style>
+        /* Global Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212; /* Dark background */
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        /* Contacts Container */
+        .contacts-container {
+            display: flex;
+            flex-direction: row; /* Align boxes horizontally */
+            align-items: center; /* Center them horizontally */
+            gap: 30px; /* Space between boxes */
+            padding: 20px;
+        }
+        .contacts-container-2 {
+            display: flex;
+            flex-direction: column; /* Align boxes horizontally */
+            align-items: center; /* Center them horizontally */
+            gap: 30px; /* Space between boxes */
+            padding: 20px;
+        }
+
+        /* Individual Contact Box */
+        .contact-box {
+            background-color: #1E1E1E; /* Darker grey background */
+            border-radius: 20px; /* Rounded corners */
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.7);
+            width: 80%; /* Adjust width (bigger size) */
+            max-width: 600px; /* Prevents it from being too wide */
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* Image Placeholder */
+        .contact-box img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Makes it circular */
+            object-fit: cover;
+            margin-bottom: 15px;
+            background-color: #444; /* Placeholder background */
+        }
+
+        /* Name and Role Styles */
+        .contact-box h2 {
+            font-size: 1.8rem;
+            margin: 10px 0 5px;
+            color: #fff;
+        }
+
+        .contact-box p {
+            font-size: 1.1rem;
+            color: #bbb;
+            font-style: italic;
+        }
+        .home-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #1E1E1E; /* Highlighted color for the button */
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            border-radius: 30px; /* Rounded corners for the button */
+            text-decoration: none;
+            margin-top: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Contact Heads</h1>
+    <div class = "grid-container">
+    <!-- Contacts Container -->
+    <div class="contacts-container">
+        <!-- Contact Box 2 -->
+        <div class="contact-box">
+            <img src="photos/ea9b2af4-bdec-475b-ad35-fe141503310d 2.jpg" alt="Person 2">
+            <h2>Sparsh Pradeep Jain</h2>
+            <p>+91 99010 95528</p>
+        </div>
+        <!-- Contact Box 5 -->
+        <div class="contact-box">
+            <img src="photos/98d58c3e-93b5-4b4e-8007-a634d73f0d0b.JPG" alt="Person 5">
+            <h2>Rishit Verma</h2>
+            <p>+91 73495 06703</p>
+        </div>
+        <!-- Contact Box 6 -->
+        <div class="contact-box">
+            <img src="photos/b19c3c20-e429-421c-a768-60f5d6b93f1f.jpg" alt="Person 6">
+            <h2>Kushal Galrani</h2>
+            <p>IIT Madras Electrical Engineer</p>
+        </div>
+        <div class="contact-box">
+            <img src="photos/b19c3c20-e429-421c-a768-60f5d6b93f1f.jpg" alt="Person 7">
+            <h2>Anshul Goyal</h2>
+            <p>IIT Bombay Computer Science</p>
+        </div>
+    </div>
+    <div class="contacts-container-2">
+
+        <a href="./index.html" class="home-button">Home</a>
+    </div>
+</body>
+</html>
